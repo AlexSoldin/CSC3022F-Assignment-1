@@ -5,7 +5,7 @@
 #include <string>
 #include <cstdlib>
 
-#include "studentRecord.h"
+#include "studentRecord.h "
 
 using namespace std;
 

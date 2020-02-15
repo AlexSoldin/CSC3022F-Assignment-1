@@ -1,0 +1,21 @@
+//
+// Created by Alex Soldin on 2020/02/15.
+//
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+
+#ifndef _DATABASE_H
+#define _DATABASE_H
+
+#include "studentRecord.h"
+
+
+namespace SLDALE003{
+
+}
+
+#endif
