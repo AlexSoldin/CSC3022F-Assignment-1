@@ -1,7 +1,11 @@
 #include <iostream>
 #include <sstream>
+#include <vector>
+#include <fstream>
 #include <string>
 #include <cstdlib>
+
+#include "studentRecord.h"
 
 using namespace std;
 
@@ -11,11 +15,11 @@ void clear(void) {
     system("clear");
 }
 
-int main() {
+int main(int argc, char * argv[]) {
 
     std::string in = "Start";
 
-    while(in.compare("q")!=0){
+    while(in.compare("q")!=0) {
         in = "Start";
         cout << "Choose an option from the following:"
                 "\n1: Add student"
@@ -28,7 +32,7 @@ int main() {
         cin >> in;
         cout << "\n";
 
-        switch(in[0]) {
+        switch (in[0]) {
             case '1':
                 cout << "Option 1\n\n";
                 break;
@@ -47,11 +51,11 @@ int main() {
             case 'q':
                 break;
 
-            default : cout << "Ivalid option. Please try again.\n\n";
+            default :
+                cout << "Ivalid option. Please try again.\n\n";
         }
 
     }
-
     clear();
     return 0;
 }
