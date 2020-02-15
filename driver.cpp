@@ -1,8 +1,15 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <cstdlib>
 
 using namespace std;
+
+void clear(void);
+
+void clear(void) {
+    system("clear");
+}
 
 int main() {
 
@@ -37,11 +44,14 @@ int main() {
             case '5':
                 cout << "Option 5\n\n";
                 break;
+            case 'q':
+                break;
 
             default : cout << "Ivalid option. Please try again.\n\n";
         }
 
     }
 
-    std::cout << "Hello, World!" << std::endl;
+    clear();
+    return 0;
 }
