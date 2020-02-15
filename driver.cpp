@@ -5,7 +5,9 @@
 #include <string>
 #include <cstdlib>
 
-#include "studentRecord.h "
+#include "studentRecord.h"
+#include "database.h"
+#include "database.cpp"
 
 using namespace std;
 
@@ -16,6 +18,9 @@ void clear(void) {
 }
 
 int main(int argc, char * argv[]) {
+
+    std::vector<SLDALE003::StudentRecord> record;
+    record = readFile("studentData.txt", record);
 
     std::string in = "Start";
 
@@ -38,6 +43,7 @@ int main(int argc, char * argv[]) {
                 break;
             case '2':
                 cout << "Option 2\n\n";
+                readData(record);
                 break;
             case '3':
                 cout << "Option 3\n\n";

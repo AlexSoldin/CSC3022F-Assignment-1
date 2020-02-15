@@ -15,7 +15,9 @@
 
 
 namespace SLDALE003{
+    std::vector<StudentRecord> readFile(std::string fileName, std::vector<StudentRecord> data);
 
+    void readData(std::vector<StudentRecord> record);
 }
 
 #endif
