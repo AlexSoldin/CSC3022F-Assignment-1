@@ -19,8 +19,10 @@ void clear(void) {
 
 int main(int argc, char * argv[]) {
 
+    std::string fileName = "studentData.txt";
+
     std::vector<SLDALE003::StudentRecord> record;
-    record = readFile("studentData.txt", record);
+    record = readFile(fileName, record);
 
     std::string in = "Start";
 
@@ -38,27 +40,35 @@ int main(int argc, char * argv[]) {
         cout << "\n";
 
         switch (in[0]) {
-            case '1':
-                cout << "Option 1\n\n";
+            case '1': {
+                std::string newStudentData;
+                cout << "Enter the details of a new student, ending with a full stop: ";
+                std::getline(cin, newStudentData, '.');
+                record = addStudent(newStudentData, record);
                 break;
-            case '2':
-                cout << "Option 2\n\n";
+            }
+            case '2': {
                 readData(record);
                 break;
-            case '3':
-                cout << "Option 3\n\n";
+            }
+            case '3': {
+                saveData(fileName, record);
                 break;
-            case '4':
+            }
+            case '4': {
                 cout << "Option 4\n\n";
                 break;
-            case '5':
+            }
+            case '5': {
                 cout << "Option 5\n\n";
                 break;
-            case 'q':
+            }
+            case 'q': {
                 break;
-
-            default :
-                cout << "Ivalid option. Please try again.\n\n";
+            }
+            default: {
+                cout << "Invalid option. Please try again.\n\n";
+            }
         }
 
     }
