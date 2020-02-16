@@ -87,6 +87,7 @@ std::vector<SLDALE003::StudentRecord> SLDALE003::addStudent(std::string newStude
         switch (i) {
             case 0:
                 newStudent.Name = newInfoArr[i];
+                newStudent.Name[0]=0;
                 break;
             case 1:
                 newStudent.Surname = newInfoArr[i];
@@ -131,8 +132,8 @@ void SLDALE003::readData(std::vector<StudentRecord> data){
     cout << "The following data is stored in the database:\n";
 
     for(int i = 0; i < data.size(); i++){
-        SLDALE003::StudentRecord current = data[i];
-        cout << current.Name << " " << current.Surname << " " << current.StudentNumber << " " << current.ClassRecord << "\n";
+        SLDALE003::StudentRecord instance = data[i];
+        cout << instance.Name << " " << instance.Surname << " " << instance.StudentNumber << " " << instance.ClassRecord << "\n";
     }
     cout << "\n";
 }
