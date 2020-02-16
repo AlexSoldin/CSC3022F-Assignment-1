@@ -17,7 +17,7 @@ namespace SLDALE003{
     struct StudentRecord{
         std::string Name;
         std::string Surname;
-        std::string StudentNumer;
+        std::string StudentNumber;
         std::string ClassRecord;
     };
 }
