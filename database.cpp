@@ -102,19 +102,16 @@ std::vector<SLDALE003::StudentRecord> SLDALE003::addStudent(std::string newStude
     }
     newStudent.ClassRecord = newResults;
 
-    bool found = 0;
+    int found = 0;
     for(int i = 0; i < data.size(); i++){
         SLDALE003::StudentRecord instance = data[i];
         if((instance.StudentNumber).compare(newStudent.StudentNumber)==0){
             found = 1;
             data[i]=newStudent;
         }
-//        else{
-//            continue;
-//        }
     }
 
-    if(found){
+    if(found==1){
         cout << "Data for existing student " << newStudent.StudentNumber <<" has been updated.\n\n";
         return data;
     }
