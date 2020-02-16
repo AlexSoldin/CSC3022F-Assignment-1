@@ -56,7 +56,10 @@ int main(int argc, char * argv[]) {
                 break;
             }
             case '4': {
-                cout << "Option 4\n\n";
+                std::string studentNumber;
+                cout << "Enter the student number: ";
+                cin >> studentNumber;
+                displayData(studentNumber, record);
                 break;
             }
             case '5': {
@@ -64,7 +67,7 @@ int main(int argc, char * argv[]) {
                 break;
             }
             case 'q': {
-                break;
+                continue;
             }
             default: {
                 cout << "Invalid option. Please try again.\n\n";

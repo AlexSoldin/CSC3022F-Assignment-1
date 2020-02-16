@@ -102,11 +102,11 @@ std::vector<SLDALE003::StudentRecord> SLDALE003::addStudent(std::string newStude
     }
     newStudent.ClassRecord = newResults;
 
-    bool found = false;
+    bool found = 0;
     for(int i = 0; i < data.size(); i++){
         SLDALE003::StudentRecord instance = data[i];
         if((instance.StudentNumber).compare(newStudent.StudentNumber)==0){
-            found = true;
+            found = 1;
             data[i]=newStudent;
         }
 //        else{
@@ -140,11 +140,27 @@ void SLDALE003::readData(std::vector<StudentRecord> data){
 
 void SLDALE003::saveData(std::string fileName, std::vector<StudentRecord> data){
     std::ofstream write;
-    myWriteFile.open(fileName);
+    write.open(fileName);
     for(int i = 0; i < data.size(); i++){
         SLDALE003::StudentRecord instance = data[i];
         write << instance.Name << " " << instance.Surname << " " << instance.StudentNumber << " " << instance.ClassRecord << "\n";
     }
     write.close();
     cout << "The database has been saved!\n\n";
+}
+
+void SLDALE003::displayData(std::string studentNumber, std::vector<StudentRecord> data){
+    int found = 0;
+    for(int i=0; i<data.size(); i++){
+        SLDALE003::StudentRecord instance = data[i];
+        if(instance.StudentNumber.compare(studentNumber)==0){
+            found = 1;
+            cout << studentNumber << ":\n" << instance.Name << " " << instance.Surname << " "
+                 << instance.StudentNumber << " " << instance.ClassRecord << "\n\n";
+        }
+    }
+
+    if(!found){
+        cout << "The student could not be found in the database.\n\n";
+    }
 }
