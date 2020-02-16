@@ -35,33 +35,36 @@ std::vector<SLDALE003::StudentRecord> SLDALE003::readFile(std::string fileName, 
                 for(int i=0; i<temps.size();i++) {
 
                     switch (i) {
-                        case 0:
+                        case 0: {
                             instance.Name = temps[i];
                             break;
-                        case 1:
+                        }
+                        case 1: {
                             instance.Surname = temps[i];
                             break;
-                        case 2:
+                        }
+                        case 2: {
                             instance.StudentNumber = temps[i];
                             break;
+                        }
 
-                        default:
+                        default: {
                             if (i == temps.size() - 1) {
                                 results += temps[i];
                             } else {
                                 results += temps[i] + " ";
                             }
+                        }
                     }
                 }
                     instance.ClassRecord = results;
                     data.push_back(instance);
             }
-            file.close();
         }
         return data;
     }
 
-    else if(!file){
+    else {
         cout << "File not found" << endl;
         exit(0);
     }
@@ -102,16 +105,16 @@ std::vector<SLDALE003::StudentRecord> SLDALE003::addStudent(std::string newStude
     }
     newStudent.ClassRecord = newResults;
 
-    int found = 0;
+    int duplicate = 0;
     for(int i = 0; i < data.size(); i++){
         SLDALE003::StudentRecord instance = data[i];
         if((instance.StudentNumber).compare(newStudent.StudentNumber)==0){
-            found = 1;
+            duplicate = 1;
             data[i]=newStudent;
         }
     }
 
-    if(found==1){
+    if(duplicate==1){
         cout << "Data for existing student " << newStudent.StudentNumber <<" has been updated.\n\n";
         return data;
     }
@@ -157,7 +160,41 @@ void SLDALE003::displayData(std::string studentNumber, std::vector<StudentRecord
         }
     }
 
-    if(!found){
+    if(found==0){
         cout << "The student could not be found in the database.\n\n";
     }
 }
+
+void SLDALE003::gradeStudent(std::string studentNumber, std::vector<StudentRecord> data){
+    int found = 0;
+    for(int i=0; i<data.size(); i++){
+        SLDALE003::StudentRecord instance = data[i];
+        if(instance.StudentNumber.compare(studentNumber)==0){
+            found = 1;
+            
+            std::string results = instance.ClassRecord;
+            std::stringstream resultsStream(results);
+            std::string gradeInstanceString;
+
+            double gradeInstanceDouble = 0;
+            double average = 0;
+            double count = 0;
+
+            while(getline(resultsStream, gradeInstanceString, ' ')){
+                gradeInstanceDouble = atof(gradeInstanceString.c_str());
+                average += gradeInstanceDouble;
+                count += 1;
+            }
+
+            average = average/count;
+            cout << "\nThe average for " << studentNumber << " is : " << average << "\n\n";
+            break;
+        }
+    }
+
+    if(found==0){
+        cout << "The student could not be found in the database.\n\n";
+    }
+}
+
+

@@ -20,6 +20,7 @@ namespace SLDALE003{
     void readData(std::vector<StudentRecord> record);
     void saveData(std::string fileName, std::vector<StudentRecord> data);
     void displayData(std::string studentNumber, std::vector<StudentRecord> data);
+    void gradeStudent(std::string studentNumber, std::vector<StudentRecord> data);
 }
 
 #endif
