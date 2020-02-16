@@ -134,7 +134,6 @@ void SLDALE003::readData(std::vector<StudentRecord> data){
         SLDALE003::StudentRecord current = data[i];
         cout << current.Name << " " << current.Surname << " " << current.StudentNumber << " " << current.ClassRecord << "\n";
     }
-
     cout << "\n";
 }
 
